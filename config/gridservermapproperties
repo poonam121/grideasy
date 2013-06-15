@@ -1,0 +1,5 @@
+server_ip=127.0.0.1
+port=50000
+numExternalNodes=0
+numLocalNodes=1
+minNodesToStart=1
