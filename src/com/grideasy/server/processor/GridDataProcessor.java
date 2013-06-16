@@ -29,8 +29,8 @@ import java.io.IOException;
 import java.util.List;
 
 import com.grideasy.client.NetDiscoverException;
-import com.grideasy.server.impl.Grid;
-import com.grideasy.server.impl.GridTask;
+import com.grideasy.server.Grid;
+import com.grideasy.server.GridTask;
 
 /**
  * Implementation of {@link DataProcessor} in the 

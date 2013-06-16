@@ -23,7 +23,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.grideasy.server.impl;
+package com.grideasy.server;
 
 import java.util.Iterator;
 import java.util.Vector;

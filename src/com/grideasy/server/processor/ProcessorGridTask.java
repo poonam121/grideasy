@@ -29,7 +29,7 @@ import java.util.LinkedList;
 import java.util.Set;
 
 import com.grideasy.client.GridJob;
-import com.grideasy.server.impl.GridTask;
+import com.grideasy.server.GridTask;
 
 /**
  * Subclass of the {@link GridTask}

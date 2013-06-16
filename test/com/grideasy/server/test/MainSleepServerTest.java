@@ -30,8 +30,8 @@ import java.util.LinkedList;
 
 import com.grideasy.client.GridJob;
 import com.grideasy.client.NetDiscoverException;
-import com.grideasy.server.impl.Grid;
-import com.grideasy.server.impl.GridTask;
+import com.grideasy.server.Grid;
+import com.grideasy.server.GridTask;
 
 public class MainSleepServerTest
 {
