@@ -247,7 +247,12 @@ public class GridNode
 					// jar
 					if (packageNames.size() > 0)
 					{
+						outputStream.write(new byte[] { 1 } );
 						JarBuilder.createJar(packageNames, null, outputStream);
+					}
+					else
+					{
+						outputStream.write(new byte[] { 0 } );
 					}
 
 					// object to run

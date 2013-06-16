@@ -86,11 +86,17 @@ public class ClientProcessExecuter
 	 * @param jarByteArray the bytes of the jars to be initialized 
 	 * @return the new {@link ClassLoader} created
 	 */
-	private URLClassLoader initJar(byte[] jarByteArray)
+	private URLClassLoader initNewClassLoader(byte[] jarByteArray)
 	{
 		URLClassLoader newClassLoader = null;
 		try
 		{
+			if (jarByteArray == null)
+			{
+				URL[] urls = new URL[0];
+				return URLClassLoader.newInstance(urls);
+			}
+			
 			String tmpFileName = "TempClasses" + System.currentTimeMillis();
 			File file = File.createTempFile(tmpFileName, ".jar");
 			FileOutputStream fos = new FileOutputStream(file);
@@ -188,14 +194,21 @@ public class ClientProcessExecuter
 			try
 			{
 				// jar bytes
-				int sz = in.readInt();
-				byte[] jarByteArray = new byte[sz];
-				in.readFully(jarByteArray);
-	
-				URLClassLoader newLoader = initJar(jarByteArray);
+				byte[] hasJarAsByte = new byte[1];
+				in.readFully(hasJarAsByte);
+				boolean hasJar = hasJarAsByte[0] == 1;
+				byte[] jarByteArray = null;
+				if (hasJar)
+				{
+					int sz = in.readInt();
+					jarByteArray = new byte[sz];
+					in.readFully(jarByteArray);
+				}
+
+				URLClassLoader newLoader = initNewClassLoader(jarByteArray);
 	
 				// object
-				sz = in.readInt();
+				int sz = in.readInt();
 				byte objInBytes[] = new byte[sz];
 				in.readFully(objInBytes);
 	
