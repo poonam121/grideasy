@@ -1,0 +1,1 @@
+Easy to use MapReduce implementation with in memory code and data delivering in Java.
